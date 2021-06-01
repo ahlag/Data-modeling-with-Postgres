@@ -29,11 +29,6 @@ At the terminal:
 1. ```python create_tables.py```
 2. ```python etl.py```
 
-In IPython:
-
-1. ```run create_tables.py```
-2. ```run etl.py```
-
 ## Database Schema
 
 After examining the Log and Song JSON files, I created a Star schema (shown below) that include one Fact table (songplays) and 4 Dimension tables.
@@ -82,6 +77,22 @@ log_data/2018/11/2018-11-13-events.json
 ```
 
 This data contains information of which songs Users listened to at a specific time. Information is parsed to provide data for the Songplays Fact table and the Users and Time Dimension tables. The ```songplays.artist_id``` and ```songplays.song_id``` columns are populated by a lookup based on the Song Title, Artist Name and song Duration.
+
+## Song play example queries
+
+Simple queries might include number of users with each membership level.
+
+`SELECT COUNT(level) FROM users;`
+
+Day of the week music most frequently listened to.
+
+`SELECT COUNT(weekday) FROM time;`
+
+Or, hour of the day music most often listened to.
+
+`SELECT COUNT(hour) FROM time;`
+
+<br>
 
 ## Description of Files
 
